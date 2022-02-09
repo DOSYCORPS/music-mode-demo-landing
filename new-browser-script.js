@@ -1,7 +1,6 @@
 
   {
     const DELAY_SAY_WAIT = 300;
-    const MobilePlatform = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     const API = 'https://sounds.musicmodeabc.xyz/v1';
     const TokenURL = () => new URL(`${API}/token`);
     const PayURL = () => new URL(`${API}/paid`);
@@ -38,7 +37,6 @@
         type: 'json'
       }
     ];
-    let frame = document?.documentElement?.querySelector('iframe.remote-browser-portal');
     let locked = false;
     let locking = false;
 
@@ -48,19 +46,12 @@
 
     async function loadBrowser(event) {
       event.preventDefault();
-      frame = document?.documentElement?.querySelector('iframe.remote-browser-portal');
-      if ( ! frame ) {
-        await delaySay(`Oh no! The iframe that's supposed to be in the page is not present. 😱`);
-        return;
-      }
-      frame.setAttribute('src', loadingUrl);
 
       event.target.querySelector('button').disabled = true;
+      event.target.querySelector('button').innerText = "Making..."
 
       let failed = false;
       let previous;
-
-      installScrollLock(frame);
 
       for( const {url,request,type:type = 'text'} of Steps ) {
         const resp = await fetch(url(previous), request(previous));
@@ -77,20 +68,18 @@
 
       if ( !failed ) {
         const {loginUrl} = previous;
-        frame.setAttribute('src', loginUrl);
-        frame.classList.add('active');
-        setTimeout(() => {
-            frame.scrollIntoView();
-          },
-          200
-        );
-      } else {
-        setTimeout(() => {
-            event.target.querySelector('button').disabled = false;
-          },
-          500
-        );
-      }
+        event.target.querySelector('button').innerText = "Loading..."
+        location.href = loadingUrl;
+        return true;
+      } 
+
+      setTimeout(() => {
+          event.target.querySelector('button').disabled = false;
+          event.target.querySelector('button').innerText = "Server Full :("
+          location.href = `/pay.html?message=${encodeURIComponent("Sorry, the server is full.")}`
+        },
+        500
+      );
 
       return false;
     }
@@ -140,30 +129,5 @@
       const pr = new Promise(res => resolve = res);
       setTimeout(() => resolve(alert(`\n  ${msg}\n`)), DELAY_SAY_WAIT);
       return pr;
-    }
-
-    function installScrollLock(target) {
-      target.addEventListener('pointerenter', lockScroll);
-      target.addEventListener('pointerleave', unlockScroll);
-    }
-
-    function lockScroll() {
-      locked = true;
-      locking = setTimeout(() => {
-        document.documentElement.style.overflow = 'hidden';
-        console.log('locked', locked);
-      }, 600);
-    }
-
-    function unlockScroll() {
-      locked = false;
-      clearTimeout(locking);
-      locking = false;
-      document.documentElement.style.overflow = 'auto';
-      console.log('locked', locked);
-    }
-
-    function isMobile() {
-      return MobilePlatform.test(navigator.userAgent);
     }
   }
