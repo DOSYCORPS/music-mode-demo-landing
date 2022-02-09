@@ -66,7 +66,7 @@
       if ( !failed ) {
         const {loginUrl} = previous;
         event.target.querySelector('button').innerText = "Loading..."
-        location.href = loadingUrl;
+        location.href = loginUrl;
         return true;
       } 
 
