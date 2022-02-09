@@ -54,9 +54,8 @@
         const resp = await fetch(url(previous), request(previous));
         if ( resp.error || ! resp.ok ) {
           failed = true;
-          const message = `Auth failed (${resp.status}: ${resp.statusText}): ${resp.error || 'error'}`;
+          const message = `Connect failed (${resp.status}: ${resp.statusText}): ${resp.error || 'error'}`;
           console.warn(message);
-          alert(message);
           break;
         }
         const data = await resp[type]();
