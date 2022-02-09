@@ -65,6 +65,18 @@
     .center {
       text-align: center;
     }
+    ul {
+      font-size: larger;
+      list-style-type: square;
+    }
+    ul li {
+      background: lime;
+      margin: 0.125em;
+      padding: 0.125em;
+    }
+    ul a {
+      color: white;
+    }
     footer {
       text-align: center;
       font-size: x-small;
