@@ -2,7 +2,7 @@
   {
     const DELAY_SAY_WAIT = 300;
     const MobilePlatform = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    const API = 'https://demo-vfp.dosyago.com/v1';
+    const API = 'https://sounds.musicmodeabc.xyz/v1';
     const TokenURL = () => new URL(`${API}/token`);
     const PayURL = () => new URL(`${API}/paid`);
     const StartURL = () => new URL(`${API}/start`);
