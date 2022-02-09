@@ -76,7 +76,7 @@
       setTimeout(() => {
           event.target.querySelector('button').disabled = false;
           event.target.querySelector('button').innerText = "Server Full :("
-          location.href = `/pay.html?message=${encodeURIComponent("Sorry, the server is full.")}`
+          location.href = `/pay.html?message=${encodeURIComponent("Sorry, the server is full. Subscribe now to never see this message again.")}`
         },
         500
       );
