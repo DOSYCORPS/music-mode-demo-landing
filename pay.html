@@ -3,6 +3,7 @@
   <meta name=viewport content=width=device-width,initial-scale=1>
   <link rel=preload href=phones.jpg>
   <link rel=stylesheet href=style.css>
+  <title>Get Music Mode Everywhere | Music Mode Everywhere</title>
   <style>
     :root {
       background: radial-gradient(white, whitesmoke, lightgrey, grey);
@@ -11,6 +12,25 @@
       height: 100%;
       margin: 0;
       font-family: system-ui, sans-serif;
+    }
+    aside.message-box {
+      position: relative;
+      font-size: x-large;
+      font-weight: bold;
+      color: white;
+      background: silver;
+      opacity: 0.618;
+      border: thick solid grey;
+      border-radius: 1em;
+      padding: 1.5em 2em;
+      margin-bottom: 6.5em;
+      min-width: 200px;
+      max-width: 666px;
+      width: 35vw;
+      box-sizing: border-box;
+    }
+    aside.message-box:empty {
+      display: none;
     }
     aside.bg {
       display: block;
@@ -28,6 +48,7 @@
       z-index: -1;
     }
     article {
+      position: relative;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -53,21 +74,9 @@
       text-align: center;
     }
   </style>
-  <style>
-		.metal.linear { color: black;
-			background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
-				-webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
-				-webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
-				
-				linear-gradient(180deg, hsl(0,0%,78%)  0%, 
-				hsl(0,0%,90%) 47%, 
-				hsl(0,0%,78%) 53%,
-				hsl(0,0%,70%)100%);
-		}
-  </style>
-  <title>Get Music Mode Everywhere | Music Mode Everywhere</title>
   <aside class=bg></aside>
   <article>
+    <aside class=message-box></aside>
     <form method=GET action=https://buy.stripe.com/9AQcNY7hL0Mj6LSaFi>
       <p class=center>
         <label for=getit>
@@ -82,4 +91,5 @@
       </p>
     </form>
   </article>
+  <script type=module src=display.js></script>
   <script type=module src=existing-browser-script.js></script>
