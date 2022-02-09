@@ -65,3 +65,8 @@
     .center {
       text-align: center;
     }
+    footer {
+      font-size: x-small;
+      color: white;
+      background: rgba(128, 128, 128, 0.618);
+    }
