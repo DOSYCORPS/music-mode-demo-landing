@@ -35,7 +35,7 @@
       background: radial-gradient(white, whitesmoke, lightgrey, grey),
           url(phones.jpg);
       background-size: cover;
-      background-position: 0 38.2%;
+      background-position: center 38.2%;
       filter: grayscale(1.0) blur(12px);
       background-blend-mode: soft-light;
       z-index: -1;
