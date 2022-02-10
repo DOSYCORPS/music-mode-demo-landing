@@ -66,13 +66,13 @@
       text-align: center;
     }
     ul {
-      font-size: larger;
+      font-size: xx-large;
       list-style-type: square;
     }
     ul li {
-      background: lime;
-      margin: 0.125em;
-      padding: 0.125em;
+      background: black;
+      margin: 0.25em;
+      padding: 0.25em;
     }
     ul a {
       color: white;
