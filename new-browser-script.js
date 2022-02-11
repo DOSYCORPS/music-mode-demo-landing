@@ -4,7 +4,7 @@
     const API = 'https://sounds.musicmodeabc.xyz/v1';
     const TokenURL = () => new URL(`${API}/token`);
     const PayURL = () => new URL(`${API}/paid`);
-    const StartURL = (prev, url) => new URL(`${API}/start?$url=${encodeURIComponent(url||'')}`);
+    const StartURL = (prev, url) => new URL(`${API}/start?url=${encodeURIComponent(url||'')}`);
     const Steps = [
       {
         url: TokenURL,
