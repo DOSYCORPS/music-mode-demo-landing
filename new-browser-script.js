@@ -4,7 +4,7 @@
     const API = 'https://sounds.musicmodeabc.xyz/v1';
     const TokenURL = () => new URL(`${API}/token`);
     const PayURL = () => new URL(`${API}/paid`);
-    const StartURL = (url) => new URL(`${API}/start?$url=${encodeURIComponent(url||'')}`);
+    const StartURL = (prev, url) => new URL(`${API}/start?$url=${encodeURIComponent(url||'')}`);
     const Steps = [
       {
         url: TokenURL,
@@ -42,7 +42,7 @@
     self.loadBrowser = loadBrowser;
 
     async function loadBrowser(event) {
-      const {value:url} = event.target.closest('form').url;
+      const {value:destination} = event.target.closest('form').url;
       event.preventDefault();
 
       event.target.querySelector('button').disabled = true;
@@ -52,7 +52,7 @@
       let previous;
 
       for( const {url,request,type:type = 'text'} of Steps ) {
-        const resp = await fetch(url(previous), request(previous));
+        const resp = await fetch(url(previous,destination), request(previous));
         if ( resp.error || ! resp.ok ) {
           failed = true;
           const message = `Connect failed (${resp.status}: ${resp.statusText}): ${resp.error || 'error'}`;
