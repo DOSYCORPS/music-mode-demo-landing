@@ -42,6 +42,7 @@
     self.loadBrowser = loadBrowser;
 
     async function loadBrowser(event) {
+      const {value:url} = event.target.closest('form').url;
       event.preventDefault();
 
       event.target.querySelector('button').disabled = true;

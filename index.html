@@ -11,18 +11,65 @@
   <aside class=bg></aside>
   <article>
     <form onsubmit=loadBrowser(event);>
+      <input type=hidden name=url value=https://youtube.com>
       <p class=center>
         <label for=getit>
           Get Music Mode Everywhere. 
         </label>
       </p>
       <p class=center>
-        <button id=getit>Get Music Mode</button>
-      </p>
-      <p>
-        Works on YouTube and more. Background and lock-screen play. Save bandwidth by blocking video. No download or extension needed.
+        <button id=getit>YouTube</button>
       </p>
     </form>
+    <form onsubmit=loadBrowser(event);>
+      <input type=hidden name=url value=https://vimeo.com>
+      <p class=center>
+        <label for=getit>
+          Get Music Mode Everywhere. 
+        </label>
+      </p>
+      <p class=center>
+        <button id=getit>Vimeo</button>
+      </p>
+    </form>
+    <form onsubmit=loadBrowser(event);>
+      <input type=hidden name=url value=https://dailymotion.com>
+      <p class=center>
+        <label for=getit>
+          Get Music Mode Everywhere. 
+        </label>
+      </p>
+      <p class=center>
+        <button id=getit>DailyMotion</button>
+      </p>
+    </form>
+    <form onsubmit=loadBrowser(event);>
+      <input type=hidden name=url value=https://youku.com>
+      <p class=center>
+        <label for=getit>
+          Get Music Mode Everywhere. 
+        </label>
+      </p>
+      <p class=center>
+        <button id=getit>YouKu</button>
+      </p>
+    </form>
+    <form onsubmit=loadBrowser(event);>
+      <p class=center>
+        <label for=getit>
+          Get Music Mode Everywhere. 
+        </label>
+      </p>
+      <p class=center>
+        <button id=getit>Somewhere else?</button>
+      </p>
+      <p class=center>
+        <input type=url placeholder="A URL" name=url required>
+      </p>
+    </form>
+    <p>
+      Works on YouTube and more. Background and lock-screen play. Save bandwidth by blocking video. No download or extension needed.
+    </p>
   </article>
   <footer>
     &copy; The Dosyago Corporation 2022 |
